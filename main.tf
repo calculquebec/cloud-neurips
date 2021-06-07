@@ -15,8 +15,8 @@ module "openstack" {
   image        = "CentOS-7-x64-2020-09"
 
   instances = {
-    mgmt   = { type = "p4-7.5gb", tags = ["puppet", "mgmt", "nfs"], count = 1 }
-    login  = { type = "p2-3.75gb", tags = ["login", "public", "proxy"], count = 1 }
+    mgmt   = { type = "p4-6gb", tags = ["puppet", "mgmt", "nfs"], count = 1 }
+    login  = { type = "p2-3gb", tags = ["login", "public", "proxy"], count = 1 }
     node   = { type = "g1-18gb-c4-22gb", tags = ["node"], count = 1 }
   }
 
