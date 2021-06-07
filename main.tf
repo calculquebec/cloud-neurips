@@ -12,7 +12,7 @@ module "openstack" {
 
   cluster_name = "ml4co"
   domain       = "calculquebec.cloud"
-  image        = "CentOS-7-x64-2020-09"
+  image        = "CentOS-7-x64-2020-11"
 
   instances = {
     mgmt   = { type = "p4-6gb", tags = ["puppet", "mgmt", "nfs"], count = 1 }
