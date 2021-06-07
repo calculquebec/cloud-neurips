@@ -3,8 +3,6 @@ terraform {
 }
 
 variable "password" {}
-variable "nb_users" {}
-variable "node_count" {}
 variable "email" {}
 
 module "openstack" {
@@ -19,7 +17,7 @@ module "openstack" {
   instances = {
     mgmt   = { type = "p4-7.5gb", tags = ["puppet", "mgmt", "nfs"], count = 1 }
     login  = { type = "p2-3.75gb", tags = ["login", "public", "proxy"], count = 1 }
-    node   = { type = "g1-18gb-c4-22gb", tags = ["node"], count = var.node_count }
+    node   = { type = "g1-18gb-c4-22gb", tags = ["node"], count = 1 }
   }
 
   volumes = {
@@ -38,7 +36,7 @@ module "openstack" {
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDa2nbgmU9ptZP1+8gq+1dajCYxuZQP04QptwiHj0xP8ERTdRnUGmENFqm/kNkntj4fvCbAGlEk96g1HQQAruAzKTIndqu0A6B8Dgip+US5zL+Zl8SFN/IR02xjT1B9hkgV0TY6wU5QUAXQdGD4kh9XN4dDHBI1F3UJokxuUi4bR8DO80x6lCJiB8i+jNKijKGf8Z6Lmob9Crr+ZoTKWi7Oc8bafJP3FEJPCtTijiDzFfOtqQGbJihGI7CffNKeB0HBByt63IiSACOE584RhuzHyPKKze2izdSUubS3rQShj0F7P7uQHYvmeZh0NP6FMYKNUTdbROmCGc1D0gMXIzmD mboisson@dhcp-106-215.gel.ulaval.ca"
   ]
 
-  nb_users = var.nb_users
+  nb_users = 15
   # Shared password, randomly chosen if blank
   guest_passwd = var.password
 }
