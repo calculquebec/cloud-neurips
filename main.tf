@@ -43,7 +43,7 @@ module "openstack" {
 
 ## Uncomment to register your domain name with CloudFlare
 module "dns" {
-  source           = "git::https://github.com/ComputeCanada/magic_castle.git//dns/cloudflare?ref=11.2"
+  source           = "git::https://github.com/ComputeCanada/magic_castle.git//dns/cloudflare?ref=main"
   email            = var.email
   name             = module.openstack.cluster_name
   domain           = module.openstack.domain
