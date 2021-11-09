@@ -27,7 +27,7 @@ module "openstack" {
       scratch  = { size = 50 }
     }
   }
-
+  os_int_network = "CCInternal-magic-castle-training-network"
   generate_ssh_key = true
 
   public_keys = [
